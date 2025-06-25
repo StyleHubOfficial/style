@@ -1,91 +1,88 @@
 // logos.js
 
-const logoGrid = document.getElementById("logo-grid");
-console.log("Appending to:", logoGrid.id);
-
-// Dummy logo thumbnails (hosted on Cloudinary or assets/images)
-const logoData = [
-  { src: "assets/images/logos/img1.jpeg", alt: "Logo 1" },
-  { src: "assets/images/logos/img2.jpeg", alt: "Logo 2" },
-  { src: "assets/images/logos/img3.jpeg", alt: "Logo 3" },
-  { src: "assets/images/logos/img4.jpeg", alt: "Logo 4" },
-  { src: "assets/images/logos/img5.jpeg", alt: "Logo 5" },
-  { src: "assets/images/logos/img6.jpeg", alt: "Logo 6" },
-  { src: "assets/images/logos/img7.jpeg", alt: "Logo 7" },
-  { src: "assets/images/logos/img8.jpeg", alt: "Logo 8" },
-  { src: "assets/images/logos/img9.jpeg", alt: "Logo 9" },
-  { src: "assets/images/logos/img10.jpeg", alt: "Logo 10" }
+const logosData = [
+  // Replace with actual Cloudinary URLs or local paths
+  "assets/images/logos/img1.jpeg",
+  "assets/images/logos/img2.jpeg",
+  "assets/images/logos/img3.jpeg",
+  "assets/images/logos/img4.jpeg",
+  "assets/images/logos/img5.jpeg",
+  "assets/images/logos/img6.jpeg",
+  "assets/images/logos/img7.jpeg",
+  "assets/images/logos/img8.jpeg",
+  "assets/images/logos/img9.jpeg",
+  "assets/images/logos/img10.jpeg"
 ];
 
-// Track load count
-let logosLoaded = 0;
-const logosPerLoad = 6;
+let logosVisible = 6;
 
-function loadMoreLogos() {
-  const container = document.getElementById("logo-grid");
-  if (!container) return;
+function renderLogos() {
+  const container = document.getElementById("logos-container");
+  container.innerHTML = "";
 
-  const start = logosLoaded;
-  const end = start + logosPerLoad;
-
-  const nextSet = logoData.slice(start, end);
-
-  nextSet.forEach((logo, i) => {
-    const variant = `variant-${(Math.floor(Math.random() * 5) + 1)}`;
+  for (let i = 0; i < logosVisible && i < logosData.length; i++) {
+    const src = logosData[i];
     const card = document.createElement("div");
-    card.className = `design-item ${variant} swipe-bottom`;
-
+    card.className = "template-card reveal-card diagonal-flow";
     card.innerHTML = `
-      <img src="${logo.src}" alt="${logo.alt}" />
-      <div class="overlay-icons">
-        <button onclick="likeImage('${logo.src}')">❤️</button>
-        <button onclick="downloadImage('${logo.src}')">⬇️</button>
-        <button onclick="shareImage('${logo.src}')">🔗</button>
-        <button onclick="orderImage('${logo.alt}')">🛒</button>
-        <button onclick="editImage('${logo.src}')">✏️</button>
+      <div class="image-wrapper">
+        <img src="${src}" alt="Logo ${i + 1}" />
+        <div class="hover-overlay">
+          <button class="btn edit">Edit</button>
+          <button class="btn order">Order</button>
+        </div>
+        <div class="static-buttons">
+          <button class="btn like">❤</button>
+          <button class="btn download">⬇</button>
+          <button class="btn share">🔗</button>
+        </div>
       </div>
     `;
-
     container.appendChild(card);
-  });
+  }
 
-  logosLoaded += logosPerLoad;
+  updateButtons();
+  initScrollReveal();
+}
 
-  if (logosLoaded >= logoData.length) {
-    const btn = container.nextElementSibling;
-    if (btn && btn.classList.contains("view-more")) {
-      btn.style.display = "none";
-    }
+function loadMore(category) {
+  if (category === "logos") {
+    logosVisible = logosData.length;
+    renderLogos();
   }
 }
 
-// Initial load
-// document.addEventListener("DOMContentLoaded", () => {
-//   loadMoreLogos();
-// });
-
-// === Action Hooks (To Be Connected in Part 16) === //
-function likeImage(src) {
-  alert("❤️ Liked: " + src);
+function viewLess(category) {
+  if (category === "logos") {
+    logosVisible = 6;
+    renderLogos();
+  }
 }
 
-function downloadImage(src) {
-  const a = document.createElement("a");
-  a.href = src;
-  a.download = src.split("/").pop();
-  a.click();
-}
+// === Scroll Reveal Animation ===
+function initScrollReveal() {
+  const revealCards = document.querySelectorAll(".reveal-card");
 
-function shareImage(src) {
-  navigator.clipboard.writeText(src).then(() => {
-    alert("🔗 Copied to clipboard: " + src);
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  revealCards.forEach(card => {
+    observer.observe(card);
   });
 }
 
-function orderImage(name) {
-  alert("🛒 Order request for: " + name);
-}
-
-function editImage(src) {
-  alert("✏️ Edit mode coming soon for: " + src);
+// Run on load
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", renderLogos);
+} else {
+  renderLogos();
 }

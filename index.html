@@ -1,123 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Style Hub – Graphics & Animation Portal</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/loader.css" />
-
-  <!-- GSAP (for powerful animations) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Style Hub</title>
+  <link href="https://fonts.googleapis.com/css?family=Yellowtail:400" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Yellowtail&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/theme.css"/>
 </head>
-
 <body>
-  <!-- 🔥 Loader Animation -->
-  <div id="loader" class="loader-container">
-    <div class="loader-content">
-      <span class="logo-sh">STYLE <span class="glow">HUB</span></span>
-      <div class="light-streak"></div>
-    </div>
+
+
+
+  <!-- ======= Navbar ======= -->
+<header class="navbar">
+  <div class="logo-main">STYLE HUB</div>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#logos">Logos</a>
+    <a href="#thumbnails">Thumbnails</a>
+    <a href="#posters">Posters</a>
+    <a href="#flyers">Flyers</a>
+    <a href="#editing">Editings</a>
+    <a href="#footer">Feedbacks</a>
+  </nav>
+
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
   </div>
 
+</header>
+<!-- ======= End Navbar ======= -->
 
-  <!-- 🌐 Header / Navigation -->
-  <header id="main-header" class="animated-header">
-    <div class="logo">STYLE HUB</div>
-    <nav class="nav-links">
-      <a href="#logos">Logos</a>
-      <a href="#thumbnails">Thumbnails</a>
-      <a href="#posters">Posters</a>
-      <a href="#flyers">Flyers</a>
-      <a href="#animations">Animations</a>
-      <a href="#editing">Editing</a>
-    </nav>
+
+<!-- === Theme Toggle Positioned Under Header === -->
+<div class="theme-toggle-container">
+  <div class="theme-toggle" id="themeToggle" title="Toggle Theme">
+    <span class="theme-icon">🌙</span>
+    <span class="theme-label">Dark</span>
+  </div>
+  <div><!-- Texts will go here --></div>
+</div>
+
+
+
+
+  <!-- === NEW SH Loader === -->
+<div id="loader" class="loader-container">
+  <div class="loader-content">
+    <div class="logo-sh">
+      S<span class="glow">H</span>
+    </div>
+    <div class="light-streak"></div>
+  </div>
+</div>
+
+
+
+  <!-- ⚡ HEADER + NAV -->
+  <header class="header">
+    <header>
+  <div class="logo-sh" style="color: blue; font-size: 55px;">WELCOME</div>
+</header>
+
+    <div class="search-filter">
+      <!-- Will be filled in Part 9 -->
+      <input type="text" placeholder="Search designs..." class="search-input"/>
+      <select class="filter-select">
+        <option value="">All</option>
+        <option value="logos">Logos</option>
+        <option value="thumbnails">Thumbnails</option>
+        <option value="posters">Posters</option>
+        <option value="flyers">Flyers</option>
+        <option value="animations">Animations</option>
+        <option value="editing">Editing</option>
+      </select>
+    </div>
   </header>
 
-  <!-- 🔍 Search & Filter Bar -->
-  <section id="search-bar">
-    <!-- Rendered in Part 9 -->
-  </section>
+  <!-- 🚀 DESIGN SECTIONS -->
+  <main class="main-content">
 
-  <!-- 🎨 Design Sections -->
-  <main id="content">
-
-    <!-- LOGOS -->
+    <!-- 🌀 Template for all sections (reusable) -->
     <section id="logos" class="design-section">
-      <h2 class="neon-pulse">LOGO DESIGNS</h2>
-      <div id="logo-grid" class="design-grid"></div>
-      <button class="view-more" onclick="loadMoreLogos()">View More</button>
+      <h2 class="section-title neon-border">Logos</h2>
+      <div class="template-grid" id="logos-container"></div>
+      <div class="btn-group">
+        <button class="view-more" onclick="loadMore('logos')">View More</button>
+        <button class="view-less" onclick="viewLess('logos')">View Less</button>
+      </div>
     </section>
 
-    <!-- THUMBNAILS -->
     <section id="thumbnails" class="design-section">
-      <h2 class="neon-pulse">THUMBNAIL DESIGNS</h2>
-      <div id="thumbnail-grid" class="design-grid"></div>
-      <button class="view-more" onclick="loadMore('thumbnails')">View More</button>
+      <h2 class="section-title neon-border">Thumbnails</h2>
+      <div class="template-grid" id="thumbnails-container"></div>
+      <div class="btn-group">
+        <button class="view-more" onclick="loadMore('thumbnails')">View More</button>
+        <button class="view-less" onclick="viewLess('thumbnails')">View Less</button>
+      </div>
     </section>
 
-    <!-- POSTERS -->
     <section id="posters" class="design-section">
-      <h2 class="neon-pulse">POSTER DESIGNS</h2>
-      <div id="poster-grid" class="design-grid"></div>
-      <button class="view-more" onclick="loadMore('posters')">View More</button>
+      <h2 class="section-title neon-border">Posters</h2>
+      <div class="template-grid" id="posters-container"></div>
+      <div class="btn-group">
+        <button class="view-more" onclick="loadMore('posters')">View More</button>
+        <button class="view-less" onclick="viewLess('posters')">View Less</button>
+      </div>
     </section>
-
-    <!-- EDITING -->
-    <section id="editing" class="design-section">
-      <h2 class="neon-pulse">EDITING SHOWCASE</h2>
-      <div id="editing-grid" class="design-grid"></div>
-      <button class="view-more" onclick="loadMore('editing')">View More</button>
-    </section>
-
 
     <section id="flyers" class="design-section">
-      <h2 class="neon-pulse">Flyer Designs</h2>
-      <div class="design-grid" id="flyer-grid"></div>
-      <button class="view-more" onclick="loadMore('flyers')">View More</button>
+      <h2 class="section-title neon-border">Flyers</h2>
+      <div class="template-grid" id="flyers-container"></div>
+      <div class="btn-group">
+        <button class="view-more" onclick="loadMore('flyers')">View More</button>
+        <button class="view-less" onclick="viewLess('flyers')">View Less</button>
+      </div>
     </section>
 
     <section id="animations" class="design-section">
-      <h2 class="neon-pulse">Animation Samples</h2>
-      <div class="design-grid" id="animation-grid"></div>
-      <button class="view-more" onclick="loadMore('animations')">View More</button>
+      <h2 class="section-title neon-border">Animations</h2>
+      <div class="template-grid" id="animations-container"></div>
+      <div class="btn-group">
+        <button class="view-more" onclick="loadMore('animations')">View More</button>
+        <button class="view-less" onclick="viewLess('animations')">View Less</button>
+      </div>
     </section>
 
-    <!-- 🔃 Parallax Scroll Section (Part 11) -->
-    <section id="scroll-section">
-      <!-- Will be injected in scroll-section.html -->
+    <section id="editing" class="design-section">
+      <h2 class="section-title neon-border">Editing</h2>
+      <div class="template-grid" id="editing-container"></div>
+      <div class="btn-group">
+        <button class="view-more" onclick="loadMore('editing')">View More</button>
+        <button class="view-less" onclick="viewLess('editing')">View Less</button>
+      </div>
     </section>
   </main>
 
-  <!-- 🤖 Style AI Button -->
-  <div id="style-ai-button">
-    <img src="assets/icons/robot.svg" alt="Style AI" />
+  <!-- 🎥 SCROLLING PARALLAX SECTION -->
+  <section id="scroll-parallax-section">
+    <!-- Filled in Part 11 -->
+  </section>
+
+  <!-- 🤖 STYLE A.I. BUTTON -->
+  <div id="style-ai-btn" onclick="launchAI()">
+    🤖
   </div>
 
-  <!-- 📩 Feedback Footer (Part 10) -->
+  <!-- ⚡ FOOTER -->
   <footer id="footer">
-    <!-- Injected dynamically -->
+    <!-- Footer content in Part 10 -->
   </footer>
 
-  <!-- 🎬 Scripts -->
-  <script src="js/loader.js"></script>
+  <!-- SCRIPTS -->
   <script src="js/main.js"></script>
+  <script src="js/loader.js"></script>
   <script src="js/sections/logos.js"></script>
   <script src="js/sections/posters.js"></script>
   <script src="js/sections/editing.js"></script>
-  <script src="js/ai/style-ai.js"></script>
-  <script src="feedback/feedback.js"></script>
+  <script src="js/sections/theme.js"></script>
+  <script src="ai/style-ai.js"></script>
 </body>
-
 </html>

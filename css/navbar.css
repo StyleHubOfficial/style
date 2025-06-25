@@ -1,0 +1,189 @@
+/* === PREMIUM NAVBAR === */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(8, 8, 15, 0.95);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0 0 8px rgba(0, 255, 247, 0.3);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* LOGO */
+.logo-main {
+  font-size: 1.7rem;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Yellowtail", cursive;
+  padding: 0.2rem 1rem;
+  border-radius: 8px;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #5271ff, #00ffe7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logo-pulse 3s ease-in-out infinite;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #cfcfcf;
+  padding: 0.3rem 0.8rem;
+  font-weight: 500;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* HOVER SHIMMER FIRST */
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0,255,247,0.5), transparent);
+  z-index: 1;
+  transition: left 0.4s ease;
+}
+
+.nav-links a:hover::before {
+  left: 100%;
+}
+
+/* AFTER HOVER COLOR FILL */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00fff7, #5271ff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  border-radius: 6px;
+}
+
+.nav-links a:hover::after {
+  opacity: 0.15;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* === MOBILE HAMBURGER === */
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition for the hamburger */
+}
+
+.hamburger span {
+  width: 22px;
+  height: 3px;
+  background: #00ffee;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: relative; /* For animation effects */
+}
+
+/* Hamburger transformation when opened */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu Styling */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0a0f14;
+    flex-direction: column;
+    display: none;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    transform: translateY(-20px); /* Slightly raised for animation */
+    opacity: 0; /* Hidden initially */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth slide-in and fade-in */
+    border-radius: 10px; /* Make the box corners rounded */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+
+  .nav-links.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Link box styling */
+  .nav-links a {
+    display: block;
+    padding: 12px 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: background 0.3s ease;
+    border-bottom: 2px solid transparent; /* Add subtle border */
+  }
+
+  .nav-links a:hover {
+    background: #33ff003b;
+    color: #0a0f14;
+    border-color: #00ffee; /* Accent border color */
+    font-weight: bold; /* Make text bold on hover */
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 999; /* Ensure hamburger stays on top */
+    position: relative;
+  }
+
+  /* Hover effect for the hamburger */
+  .hamburger:hover span {
+    background: #ff5e5e;
+    transform: scale(1.1);
+  }
+}
+
+
+/* === LOGO PULSE ANIMATION === */
+@keyframes logo-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px #00fff7);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px #5271ff);
+  }
+}

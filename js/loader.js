@@ -7,5 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       loader.style.display = "none";
     }, 1000);
-  }, 2200);
+  }, 2200); // Adjust timing as needed
 });

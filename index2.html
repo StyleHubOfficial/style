@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HTML -->
+<button class="order-now">Order Now</button>
+<nav class="nav-links" id="navLinks">
+    <a href="#logos">Logos</a>
+    <a href="#thumbnails">Thumbnails</a>
+    <a href="#posters">Posters</a>
+    <a href="#flyers">Flyers</a>
+    <a href="#editing">Editing</a>
+    <a href="#footer">Feedback</a>
+  </nav>
+
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+<script>
+    // JavaScript
+    document.querySelector('.order-now').addEventListener('click', function() {
+        alert('Order placed successfully!');
+    });
+</script>
+
+
+<style>
+    /* === NAVBAR BASE === */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(5, 5, 10, 0.95);
+  padding: 0.6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0 0 15px #00fff7;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff0000;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+}
+
+.nav-links a::before,
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    #00fff7,
+    transparent 70%
+  );
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links a::after {
+  background: linear-gradient(
+    135deg,
+    #00fff7 20%,
+    #5271ff 50%,
+    #00ffee 80%
+  );
+  transition: all 0.5s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+.nav-links a:hover::before {
+  left: 100%;
+  transition: left 0.5s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  left: 0;
+  opacity: 1;
+}
+
+/* Ensure text is always above */
+.nav-links a {
+  position: relative;
+  z-index: 2;
+}
+
+/* === HAMBURGER FOR MOBILE === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #00fff7;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* === MOBILE MENU === */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #05050a;
+    flex-direction: column;
+    display: none;
+    padding: 1rem 2rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+</style>
+</body>
+</html>

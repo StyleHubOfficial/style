@@ -1,155 +1,144 @@
-/* ====== KEYFRAMES: Cinematic Style ====== */
+/* ===============================
+   🎬 ANIMATION KEYFRAMES
+================================= */
 
-/* ⚡ Glitch Flicker */
-@keyframes glitch {
-  0% { transform: translate(0); opacity: 1; }
-  20% { transform: translate(-2px, 2px); opacity: 0.8; }
-  40% { transform: translate(2px, -1px); opacity: 1; }
-  60% { transform: translate(-1px, 1px); opacity: 0.9; }
-  80% { transform: translate(1px, -2px); opacity: 1; }
-  100% { transform: translate(0); opacity: 1; }
+/* ⚡ Neon Flicker Pulse */
+@keyframes neonFlicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.8; }
+  20% { opacity: 0.4; }
+  30% { opacity: 1; }
+  40% { opacity: 0.7; }
+  50% { opacity: 1; }
+  60% { opacity: 0.5; }
+  70% { opacity: 1; }
+  80% { opacity: 0.3; }
+  90% { opacity: 0.9; }
 }
 
-/* ⚡ Neon Pulse Glow */
-@keyframes neon-pulse {
+/* 🌩 Lightning Glow Pulse */
+@keyframes lightningGlow {
   0% {
-    box-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
   }
   50% {
-    box-shadow: 0 0 30px #00fff7, 0 0 60px #0077ff;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), 0 0 80px rgba(0, 255, 255, 0.6);
   }
   100% {
-    box-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
   }
 }
 
-/* 🎬 Swipe-In from Bottom */
-@keyframes swipe-in-bottom {
+/* 🎯 Slide + Fade Reveal */
+@keyframes fadeSlideUp {
   0% {
-    transform: translateY(80px);
     opacity: 0;
+    transform: translateY(30px);
   }
   100% {
+    opacity: 1;
     transform: translateY(0);
-    opacity: 1;
   }
 }
-
-/* 🎬 Swipe-In from Left */
-@keyframes swipe-in-left {
+@keyframes fadeSlideRight {
   0% {
-    transform: translateX(-100px);
     opacity: 0;
+    transform: translateX(-30px);
   }
   100% {
+    opacity: 1;
     transform: translateX(0);
-    opacity: 1;
   }
 }
 
-/* 🎬 Swipe-In from Right */
-@keyframes swipe-in-right {
+/* 🔁 Continuous Floating Tilt */
+@keyframes floatTilt {
+  0% { transform: rotateZ(-1deg); }
+  50% { transform: rotateZ(1.5deg); }
+  100% { transform: rotateZ(-1deg); }
+}
+
+/* 💨 Fast Flicker Zoom */
+@keyframes zoomFlicker {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  20% { transform: scale(1.05); opacity: 0.6; }
+  50% { transform: scale(0.98); opacity: 1; }
+  80% { transform: scale(1.1); opacity: 0.5; }
+}
+
+/* 🌠 Star Entry Zoom */
+@keyframes starZoom {
   0% {
-    transform: translateX(100px);
+    transform: scale(0.4) rotate(15deg);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: scale(1) rotate(0);
     opacity: 1;
   }
 }
 
-/* 🎬 Zoom Reveal */
-@keyframes zoom-in {
+@keyframes underline-move {
   0% {
-    transform: scale(0.8);
-    opacity: 0;
+    background-position: 0% center;
   }
   100% {
-    transform: scale(1);
-    opacity: 1;
+    background-position: 200% center;
   }
 }
-
-/* ⚡ Lightning Blink (for loader or footer) */
-@keyframes lightning-blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 0.4;
-  }
-  46% {
-    opacity: 1;
-  }
-  48% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 1;
-  }
-  52% {
-    opacity: 0.6;
-  }
+.animated-underline {
+  height: 3px;
+  width: 100%;
+  background-size: 200% auto;
+  animation: underline-move 4s linear infinite;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
 }
 
-/* 🎬 Parallax Scroll Float */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+
+
+
+/* =========================
+   ✨ ANIMATION UTILITIES
+=========================== */
+
+/* Smooth fade-ins */
+.fade-in-up {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+.fade-in-left {
+  animation: fadeSlideRight 0.8s ease-out forwards;
 }
 
-/* 🚨 Shaky Effect */
-@keyframes shake {
-  0% { transform: translate(0, 0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(2px, -2px); }
-  60% { transform: translate(-1px, 1px); }
-  80% { transform: translate(1px, -1px); }
-  100% { transform: translate(0, 0); }
+/* Flicker pulses */
+.flicker-glow {
+  animation: neonFlicker 3s infinite;
+}
+.flicker-lightning {
+  animation: lightningGlow 2.5s infinite;
 }
 
-/* ====== UTILITY ANIMATION CLASSES ====== */
-
-.glitch {
-  animation: glitch 0.8s infinite;
+/* Continuous tilts */
+.float-tilt {
+  animation: floatTilt 3s ease-in-out infinite;
 }
 
-.neon-pulse {
-  animation: neon-pulse 2s infinite ease-in-out;
+/* Entry effects */
+.zoom-flicker {
+  animation: zoomFlicker 1.2s ease-in-out;
+}
+.star-entry {
+  animation: starZoom 0.9s ease-out forwards;
 }
 
-.swipe-bottom {
-  animation: swipe-in-bottom 0.8s ease-out forwards;
+/* Delay versions for staggered load */
+.delay-1 {
+  animation-delay: 0.3s;
 }
-
-.swipe-left {
-  animation: swipe-in-left 0.8s ease-out forwards;
+.delay-2 {
+  animation-delay: 0.6s;
 }
-
-.swipe-right {
-  animation: swipe-in-right 0.8s ease-out forwards;
-}
-
-.zoom-in {
-  animation: zoom-in 0.6s ease-out forwards;
-}
-
-.float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.lightning {
-  animation: lightning-blink 1.5s infinite;
-}
-
-.shake {
-  animation: shake 0.3s linear infinite;
+.delay-3 {
+  animation-delay: 0.9s;
 }

@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Relief&display=swap">
+    <style>
+         body {
+            background: fixed url(images/img8.jpeg);
+            background-size: 10%;
+            font-family: Comic Relief, sans-serif;
+        }
+
+        /* Order Now Button */
+        .order-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background: #ff1361;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #00ff0d;
+            color: #fff;
+        }
+
+        /* Carousel Section */
+        .carousel-container {
+            position: relative;
+            max-width: 50%;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+
+    <title>HOME</title>
+</head>
+
+<body>
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff6ec4, #7873f5, #4facfe, #34e89e);
+            background-size: 300% 300%;
+            animation: bgMove 12s infinite ease-in-out;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Page background animation */
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #00fff7;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.5);
+        }
+
+        nav a {
+            color: #00fff7;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glowing button effect */
+        nav a:hover {
+            background: linear-gradient(135deg, #00fff7, #ff6ec4, #ffa07a);
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+        }
+
+        /* Page container */
+        .container {
+            width: 90%;
+            margin: 50px auto;
+            max-width: 1200px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.2s ease-out;
+        }
+
+        /* Section animation when page loads */
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Individual sections */
+        section {
+            padding: 50px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        section:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #06f5e1, #03f80f);
+            color: #fff;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 128, 0.4);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #ff1361, #fff800);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 99, 71, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">🏡 Home</a>
+        <a href="explore2/explore2.html">🔭 Explore</a>
+        <a href="description.html">📜 Description</a>
+        <a href="aboutus.html">ℹ️ About Us</a>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <section>
+            <h2>Welcome to Our World 🌍</h2>
+            <p>Explore the most immersive, interactive, and fun-filled experiences like never before!</p>
+            <a href="#" class="btn">Get Started 🚀</a>
+        </section>
+
+        <section>
+            <h2>Explore New Horizons 🌌</h2>
+            <p>Discover new challenges and exciting features across all our pages.</p>
+            <a href="explore2/explore2.html" class="btn">Explore Now 🔭</a>
+        </section>
+
+        <section>
+            <h2>Understand the Journey 📚</h2>
+            <p>Find detailed information about what we offer and how we make an impact.</p>
+            <a href="description.html" class="btn">Read More 📜</a>
+        </section>
+
+        <section>
+            <h2>Meet the Team 💡</h2>
+            <p>Get to know the minds behind this masterpiece.</p>
+            <a href="aboutus.html" class="btn">About Us 👨‍💻</a>
+        </section>
+    </div>
+
+    <!-- JavaScript to trigger animations -->
+    <script>
+        // Add scroll animation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const containers = document.querySelectorAll('.container');
+
+            function revealOnScroll() {
+                containers.forEach(container => {
+                    const containerTop = container.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+
+                    if (containerTop < windowHeight - 50) {
+                        container.classList.add('show');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Run on page load
+        });
+    </script>
+
+
+    <!-- Favourites List -->
+    <div class="fav-list" id="favList"></div>
+
+
+    <style>
+        nav h2, nav h3 {
+    background: rgb(60, 255, 0);
+    border-radius: 12px;
+    padding: 8px;
+    display: inline-block;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
+    </style>
+    
+
+
+
+     <!-- Pages Animation(Order, Services) -->
+
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px 25px;
+            border-radius: 20px;
+            border: 3px dotted rgb(3, 255, 255);
+            background-image: linear-gradient(-225deg,
+                #06f5e1 0%,
+                #03f80f 29%,
+                #ff1361 67%,
+                #fff800 100%);
+            background-size: 200% auto;
+            animation: backgroundMove 8s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(25, 0, 252);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav div {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 12px 25px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 6px 15px rgba(0, 255, 128, 0.3);
+        }
+
+        /* Hover effects for individual links */
+        nav div:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 255, 128, 0.6);
+            cursor: pointer;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            nav div {
+                width: 80%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div>
+            <a href="order.html">✍️Order🛒</a>
+        </div>
+
+        <div>
+            <a href="services.html">🌀Services👨‍🔧</a>
+        </div>
+    </nav>
+
+
+
+
+
+    ✍️Order🛒
+    🌀Services👨‍🔧
+
+    <style>
+        #pages {
+            color: #f6fa04;
+            align-items: center;
+            display: flex;
+            gap: 2%;
+            border-radius: 12px;
+            border-color: #0bf803;
+            border-width: 2px;
+            border-style: dashed;
+        }
+    </style>
+
+    <!-- <link rel="shortcut icon" href="logos/logo1.jpeg" type="image/x-icon"> -->
+
+    <div id="img" style="position: absolute;
+    position: fixed;
+        top: 0%;
+        margin-left: 80%;">
+
+        <a href="https://ankitbugaliya.blogspot.com" target="_blank" rel="noopener noreferrer"><img
+                src="logos/logo1.jpeg" alt="" width="90px" style="border-radius: 50%;"></a>
+
+        <a href="https://ankusena.github.io/mysite" target="_blank" rel="noopener noreferrer"><img
+                src="logos/logo2.jpeg" alt="" width="90px" style="border-radius: 50%;"></a>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>WELCOME To Our AMAZING <br> And Mind-Blowing Creation <br>
+                <div style="color: #f70505;">
+                    "ANKU SENA STUDIO"
+                </div>
+            </h1>
+            <h2 style="color: greenyellow;">
+                Your one-stop destination for all your design needs.
+            </h2>
+        </div>
+    </div>
+
+    <div id="b">
+        <h1>Let's Begin <br> With A <br> Short LOOK <br> Of This <br> Short Creation</h1>
+    </div>
+
+    <div id="video1">
+        <video controls loop src="videos/video1.mp4" height="400px" width="640px"></video>
+    </div>
+
+    <div id="d">
+        <h1>It's Just An <br> ANIMATION <br> Of Our <br> Amazing <br> CEATION</h1>
+    </div>
+
+    <div id="video2">
+        <video controls loop src="videos/video2.mp4" height="400px" width="640px"></video>
+    </div>
+
+    <div id="e">
+        <h1 style="text-align: left;">Let's Give <br> One Movement <br> To The <br> Representation</h1>
+    </div>
+
+    <!-- Order Now Button -->
+    <a href="order.html" class="order-btn" style="font-size: xx-large; text-decoration: underline greenyellow;">✍️Order🛒 NOW</a>
+
+    <div id="video3">
+        <video controls loop src="videos/video3.mp4" height="400px" width="640px"></video>
+    </div>
+
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <div class="carousel-slide" data-image="img1.jpeg">
+                <img src="images/img1.jpeg" alt="Design 1">
+                <div class="image-info">
+                    Design 1
+                    <button class="image-btn" onclick="orderImage('img1.jpeg')">🛒 Order</button>
+                    <button class="image-btn" onclick="addToFavourites('img1.jpeg')">❤️ Add to Fav</button>
+                </div>
+            </div>
+            <div class="carousel-slide" data-image="img2.jpeg">
+                <img src="images/img2.jpeg" alt="Design 2">
+                <div class="image-info">
+                    Design 2
+                    <button class="image-btn" onclick="orderImage('img2.jpeg')">🛒 Order</button>
+                    <button class="image-btn" onclick="addToFavourites('img2.jpeg')">❤️ Add to Fav</button>
+                </div>
+            </div>
+            <div class="carousel-slide" data-image="img3.jpeg">
+                <img src="images/img3.jpeg" alt="Design 3">
+                <div class="image-info">
+                    Design 3
+                    <button class="image-btn" onclick="orderImage('img3.jpeg')">🛒 Order</button>
+                    <button class="image-btn" onclick="addToFavourites('img3.jpeg')">❤️ Add to Fav</button>
+                </div>
+            </div>
+            <div class="carousel-slide" data-image="img4.jpeg">
+                <img src="images/img4.jpeg" alt="Design 4">
+                <div class="image-info">
+                    Design 4
+                    <button class="image-btn" onclick="orderImage('img4.jpeg')">🛒 Order</button>
+                    <button class="image-btn" onclick="addToFavourites('img4.jpeg')">❤️ Add to Fav</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+
+
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+
+            document.querySelector('.carousel-wrapper').style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(() => moveSlide(1), 5000);
+
+        // Swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelector('.carousel-container').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.querySelector('.carousel-container').addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                moveSlide(1);
+            }
+            if (touchEndX - touchStartX > 50) {
+                moveSlide(-1);
+            }
+        }
+
+        // Order Image with Pre-filled Upload
+        function orderImage(imageName) {
+            const orderUrl = `order.html?image=${imageName}`;
+            window.location.href = orderUrl;
+        }
+
+        // Add to Favourites
+        function addToFavourites(imageName) {
+            let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+            if (!favourites.includes(imageName)) {
+                favourites.push(imageName);
+                localStorage.setItem('favourites', JSON.stringify(favourites));
+                alert(`${imageName} added to favourites!`);
+                loadFavourites();
+            } else {
+                alert(`${imageName} is already in favourites!`);
+            }
+        }
+
+        // Load Favourites
+        function loadFavourites() {
+            const favList = document.getElementById('favList');
+            const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+            favList.innerHTML = '';
+            favourites.forEach(img => {
+                favList.innerHTML += `<img src="images/${img}" alt="${img}">`;
+            });
+        }
+
+        // Toggle Favourites View
+        document.getElementById('fav-toggle-btn').addEventListener('click', () => {
+            const favList = document.getElementById('favList');
+            favList.style.display = favList.style.display === 'block' ? 'none' : 'block';
+        });
+
+        loadFavourites();
+    </script>
+
+
+
+
+    <style>
+        /* Image Name & Button on Hover */
+        .image-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            display: none;
+        }
+
+        .carousel-slide:hover .image-info {
+            display: block;
+        }
+
+        .image-btn {
+            background: #ff1361;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .image-btn:hover {
+            background: #00ff0d;
+        }
+
+        /* Responsive Logo Adjustment */
+        #img {
+            position: absolute;
+            top: 0;
+            margin-left: 80%;
+        }
+
+        #img a {
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            #img {
+                position: relative;
+                margin: 10px auto;
+                display: flex;
+                justify-content: center;
+            }
+
+            #img a img {
+                width: 60px;
+                margin-right: 5px;
+            }
+        }
+
+        /* Favourite List */
+        .fav-list {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 1000;
+            max-width: 200px;
+        }
+
+        .fav-list img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        #fav-toggle-btn {
+            cursor: pointer;
+            background: #ff1361;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #fav-toggle-btn:hover {
+            background: #00ff0d;
+        }
+    </style>
+
+
+
+    <div class="loading">
+        <span style="background: #0408fa;">DESIGNED BY - LAKSHYA & ANKIT</span>
+    </div>
+
+    <div id="f">
+
+    </div>
+
+
+
+    <!-- css style -->
+
+
+
+
+    <style>
+        * {
+            font-family: Comic Relief, sans-serif;
+            /* border-radius: 12px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px; */
+        }
+
+        #a :hover {
+            background: #f81303;
+            color: #02f8e4;
+        }
+
+        #a {
+            text-align: right;
+            text-transform: capitalize;
+            display: flex;
+
+            gap: 30px;
+            color: rgb(25, 0, 252);
+            background: rgba(2, 177, 247, 0.13);
+            border-style: dotted;
+            border-color: rgb(3, 255, 255);
+            border-radius: 20px;
+            text-decoration: underline 3px rgb(3, 167, 3) dashed;
+
+            background-image: linear-gradient(-225deg,
+                    #06f5e1 0%,
+                    #03f80f 29%,
+                    #ff1361 67%,
+                    #fff800 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: border-box;
+            animation: textclip 8s cubic-bezier(0.075, 0.82, 0.165, 2) infinite;
+            display: inline-flex;
+            font-size: 20px;
+        }
+
+        @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* SwipeIn animation */
+
+        .container {
+            display: flex;
+            align-items: start;
+
+            border: dotted red;
+            margin: 0;
+            padding: 0;
+            font-family: cursive;
+            overflow: hidden;
+            /* Prevent scrolling */
+        }
+
+        .container {
+            color: rgb(0, 255, 242);
+
+            /* Use full viewport height */
+            overflow: hidden;
+            /* Hide overflowing content */
+        }
+
+        .content {
+
+            transform: translate(-50%, -50%);
+            /* Center horizontally and vertically */
+            opacity: 0;
+            /* Initially hide the content */
+            animation: swipeIn 2s forwards;
+            /* Apply swipe-in animation */
+        }
+
+        /* Define keyframes for swipe-in animation */
+        @keyframes swipeIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* RotateIn animation */
+
+        #b {
+            text-shadow: 4px 4px 5px rgb(0, 68, 255);
+            color: #34f803;
+            position: absolute;
+
+            font-size: 25px;
+            transform: rotate(-180deg);
+            animation: rotateIn 2s forwards;
+        }
+
+        @keyframes rotateIn {
+            0% {
+                transform: rotate(-180deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        #video1 {
+            text-align: right;
+        }
+
+        /* zoom in animation */
+
+        #d {
+            text-shadow: 4px 4px 5px rgb(255, 2, 2);
+            color: #f6fa04;
+            text-align: right;
+
+            font-size: 25px;
+            transform: scale(0);
+            animation: zoomIn 2s forwards;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #video2 {
+            text-align: left;
+        }
+
+        #e {
+            text-shadow: 4px 4px 5px rgb(255, 2, 2);
+            color: #0441fa;
+            text-align: left;
+
+            font-size: 25px;
+        }
+
+        #f {
+            display: flex;
+            font-family: cursive;
+
+            text-transform: uppercase;
+            background-image: linear-gradient(-225deg,
+                    #06f5e1 0%,
+                    #03f80f 29%,
+                    #ff1361 67%,
+                    #fff800 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline;
+            font-size: 36px;
+        }
+
+        @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        #video3 {
+            text-align: right;
+        }
+
+        /* loading animation */
+
+
+
+        .loading {
+            font-size: 30px;
+            text-transform: uppercase;
+
+            text-align: center;
+            line-height: 40px;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transform: translateY(10%);
+        }
+
+        .loading span {
+            border-radius: 20px;
+            position: relative;
+            z-index: 999;
+            color: #f70505;
+            font-weight: bold;
+            text-shadow: 1px 2px 1px #0bf803;
+        }
+
+        .loading:before {
+            content: '';
+            background: #02f8e4;
+            width: 420px;
+            height: 54px;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+            animation: 3s loadingBefore infinite ease-in-out;
+        }
+
+        @keyframes loadingBefore {
+            0% {
+                transform: translateX(-14px);
+            }
+
+            50% {
+                transform: translateX(14px);
+            }
+
+            100% {
+                transform: translateX(-14px);
+            }
+        }
+
+
+        .loading:after {
+            content: '';
+            background: #1eff00;
+            width: 14px;
+            height: 70px;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            opacity: 5;
+
+            animation: 3s loadingAfter infinite ease-in-out;
+        }
+
+        @keyframes loadingAfter {
+            0% {
+                transform: translateX(-120px);
+            }
+
+            50% {
+                transform: translateX(120px);
+            }
+
+            100% {
+                transform: translateX(-120px);
+            }
+        }
+    </style>
